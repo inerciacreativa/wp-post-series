@@ -1,0 +1,36 @@
+{
+  "name": "inerciacreativa/wp-post-series",
+  "type": "wordpress-plugin",
+  "license": "MIT",
+  "description": "Gestor de series de artículos",
+  "homepage": "https://github.com/inerciacreativa/wp-post-series",
+  "keywords": [
+    "wordpress",
+    "plugin",
+    "wordpress-plugin"
+  ],
+  "authors": [
+    {
+      "name": "José Cuesta",
+      "email": "jose.cuesta@inerciacreativa.com",
+      "homepage": "https://inerciacreativa.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "composer/installers": "^1.5",
+    "inerciacreativa/wp-framework": "1.0"
+  },
+  "config": {
+    "vendor-dir": "vendor"
+  },
+  "extra": {
+    "installer-name": "ic-post-series"
+  },
+  "autoload": {
+    "psr-4": {
+      "ic\\Plugin\\PostSeries\\": "source/"
+    }
+  }
+}

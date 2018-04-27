@@ -1,0 +1,145 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ic Post Series\n"
+"POT-Creation-Date: 2018-04-28 01:39+0200\n"
+"PO-Revision-Date: 2018-04-28 01:40+0200\n"
+"Last-Translator: \n"
+"Language-Team: Jose Cuesta <jose.cuesta@inerciacreativa.com>\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.7\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;"
+"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;"
+"esc_html_x:1,2c\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: source/Backend.php:27
+msgid "Post types"
+msgstr "Tipos de entradas"
+
+#: source/Backend.php:29
+msgid "Visualization options"
+msgstr "Opciones de visualización"
+
+#: source/Backend.php:30
+msgid "Include scheduled posts"
+msgstr "Incluir artículos programados"
+
+#: source/Backend.php:31
+msgid "Position of the list"
+msgstr "Posición donde se mostrarán"
+
+#: source/Backend.php:32
+msgid "Before the content"
+msgstr "Antes del contenido"
+
+#: source/Backend.php:33
+msgid "After the content"
+msgstr "Después del contenido"
+
+#: source/Backend.php:34
+msgid "Don't show"
+msgstr "No mostrar"
+
+#: source/Backend.php:37
+msgid "Archive"
+msgstr "Archivo"
+
+#: source/Backend.php:38
+msgid "Enable archives for the series"
+msgstr "Habilita el archivo de series"
+
+#: source/Backend.php:39
+msgid "Order of the posts"
+msgstr "Orden de los artículos"
+
+#: source/Backend.php:40
+msgid "Descending"
+msgstr "Descendente"
+
+#: source/Backend.php:41
+msgid "Ascending"
+msgstr "Ascendente"
+
+#: source/Backend.php:44
+msgid "Template"
+msgstr "Plantilla"
+
+#: source/Backend.php:45
+msgid "Type"
+msgstr "Tipo"
+
+#: source/Backend.php:46
+msgid "Filename"
+msgstr "Nombre del archivo"
+
+#: source/Backend.php:48
+msgid "Do not include the extension."
+msgstr "No incluir la extensión."
+
+#: source/Backend.php:55
+msgid "Custom structures for posts series"
+msgstr "Estructuras personalizadas para las series"
+
+#: source/Backend.php:56
+msgid "Series base"
+msgstr "Series base"
+
+#: source/PostSeries.php:50
+msgctxt "singular"
+msgid "Series"
+msgstr "Serie"
+
+#: source/PostSeries.php:51
+msgctxt "plural"
+msgid "Series"
+msgstr "Series"
+
+#: source/PostSeries.php:58
+#, php-format
+msgid "All %s"
+msgstr "Todas las %s"
+
+#: source/PostSeries.php:59
+#, php-format
+msgid "Add New %s"
+msgstr "Añadir nueva %s"
+
+#: source/PostSeries.php:60
+#, php-format
+msgid "New %s Name"
+msgstr "Nombre de la nueva %s"
+
+#: source/PostSeries.php:88
+#, php-format
+msgid "This is post %d of %d in the series <em>&ldquo;%s&rdquo;</em>"
+msgstr "Este es el artículo %d de %d de la serie <em>&ldquo;%s&rdquo;</em>"
+
+#: source/PostSeries.php:118
+#, php-format
+msgid "%s &ndash;&nbsp;<em>Scheduled for %s</em>"
+msgstr "%s &ndash;&nbsp;<em>Programado para el %s</em>"
+
+#~ msgid "Enable series archive"
+#~ msgstr "Habilitar el archivo de la serie"
+
+#~ msgid "Filter by post series"
+#~ msgstr "Filtrar por series de entradas"
+
+#~ msgid "All series"
+#~ msgstr "Todas las series"
+
+#~ msgid "Series"
+#~ msgstr "Series"
+
+#~ msgid "%s &ndash; <em>Scheduled for %s</em>"
+#~ msgstr "%s &ndash; <em>Programado para %s</em>"
+
+#~ msgid "Show link list after the content"
+#~ msgstr "Mostrar enlaces después del contenido"
