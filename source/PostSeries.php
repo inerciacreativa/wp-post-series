@@ -2,10 +2,10 @@
 
 namespace ic\Plugin\PostSeries;
 
-use ic\Framework\Custom\Taxonomy;
 use ic\Framework\Html\Tag;
 use ic\Framework\Plugin\Plugin;
 use ic\Framework\Support\Template;
+use ic\Framework\Type\Taxonomy;
 
 /**
  * Class PostSeries
@@ -20,9 +20,9 @@ class PostSeries extends Plugin
 	/**
 	 * @inheritdoc
 	 */
-	protected function onCreation()
+	protected function configure(): void
 	{
-		parent::onCreation();
+		parent::configure();
 
 		$this->setOptions([
 			'tax'      => [
@@ -45,19 +45,19 @@ class PostSeries extends Plugin
 	/**
 	 * @inheritdoc
 	 */
-	protected function onInit()
+	protected function initialize(): void
 	{
-		$singular = _x('Series', 'singular', $this->id);
-		$plural   = _x('Series', 'plural', $this->id);
+		$singular = _x('Series', 'singular', $this->id());
+		$plural   = _x('Series', 'plural', $this->id());
 
 		Taxonomy::create(self::TAX_TYPE, $this->getOption('tax.posts'))
 		        ->nouns($singular, $plural)
 		        ->rewrite($this->getOption('tax.slug'))
 		        ->has_archive($this->getOption('tax.archive'))
 		        ->labels([
-			        'all_items'     => sprintf(__('All %s', $this->id), strtolower($plural)),
-			        'add_new_item'  => sprintf(__('Add New %s', $this->id), strtolower($singular)),
-			        'new_item_name' => sprintf(__('New %s Name', $this->id), strtolower($singular)),
+			        'all_items'     => sprintf(__('All %s', $this->id()), strtolower($plural)),
+			        'add_new_item'  => sprintf(__('Add New %s', $this->id()), strtolower($singular)),
+			        'new_item_name' => sprintf(__('New %s Name', $this->id()), strtolower($singular)),
 		        ])
 		        ->meta_box(false, false);
 	}
@@ -70,6 +70,7 @@ class PostSeries extends Plugin
 	 * @return string
 	 *
 	 * @throws \InvalidArgumentException
+	 * @throws \RuntimeException
 	 */
 	public function getTemplate(\WP_Post $post): string
 	{
@@ -85,7 +86,7 @@ class PostSeries extends Plugin
 		}
 
 		$name        = $series->name;
-		$header      = __('This is post %d of %d in the series <em>&ldquo;%s&rdquo;</em>', $this->id);
+		$header      = __('This is post %d of %d in the series <em>&ldquo;%s&rdquo;</em>', $this->id());
 		$description = term_description($series->term_id, self::TAX_TYPE);
 
 		if ($this->getOption('tax.archive')) {
@@ -115,7 +116,7 @@ class PostSeries extends Plugin
 		$links    = array_flip($posts);
 		$total    = 0;
 		$current  = 0;
-		$schedule = __('%s &ndash;&nbsp;<em>Scheduled for %s</em>', $this->id);
+		$schedule = __('%s &ndash;&nbsp;<em>Scheduled for %s</em>', $this->id());
 
 		foreach ($links as $id => $empty) {
 			$total++;

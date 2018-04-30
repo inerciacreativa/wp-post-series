@@ -17,13 +17,23 @@ class Frontend extends PluginClass
 	/**
 	 * @inheritdoc
 	 */
-	protected function onCreation()
+	protected function configure(): void
 	{
-		$this->setHook()->on('pre_get_posts', function (\WP_Query $query) {
-			if ($query->is_archive() && $query->is_tax(PostSeries::TAX_TYPE)) {
-				$query->set('order', $this->getOption('tax.order'));
-			}
-		})->on('the_content', 'addToContent');
+		parent::configure();
+
+		$this->hook()
+		     ->on('pre_get_posts', 'setArchiveOrder')
+		     ->on('the_content', 'addToContent');
+	}
+
+	/**
+	 * @param \WP_Query $query
+	 */
+	protected function setArchiveOrder(\WP_Query $query): void
+	{
+		if ($query->is_archive() && $query->is_tax(PostSeries::TAX_TYPE)) {
+			$query->set('order', $this->getOption('tax.order'));
+		}
 	}
 
 	/**
@@ -34,6 +44,7 @@ class Frontend extends PluginClass
 	 * @return string
 	 *
 	 * @throws \InvalidArgumentException
+	 * @throws \RuntimeException
 	 */
 	protected function addToContent(string $content): string
 	{

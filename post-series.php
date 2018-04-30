@@ -2,12 +2,12 @@
 /**
  * Plugin Name: ic Post Series
  * Plugin URI:  https://github.com/inerciacreativa/wp-post-series
- * Version:     1.0.0
+ * Version:     2.0.0
+ * Text Domain: ic-post-series
+ * Domain Path: /languages
  * Description: Gestor de series de artículos.
  * Author:      Jose Cuesta
  * Author URI:  https://inerciacreativa.com/
- * Text Domain: ic-post-series
- * Domain Path: /languages
  * License:     MIT
  * License URI: https://opensource.org/licenses/MIT
  */

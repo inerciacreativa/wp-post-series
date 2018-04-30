@@ -9,7 +9,7 @@ namespace ic\Plugin\PostSeries;
  */
 function template(\WP_Post $post): string
 {
-	return PostSeries::getInstance()->getTemplate($post);
+	return PostSeries::instance()->getTemplate($post);
 }
 
 /**
@@ -19,7 +19,7 @@ function template(\WP_Post $post): string
  */
 function series(\WP_Post $post): ?\WP_Term
 {
-	return PostSeries::getInstance()->getSeries($post);
+	return PostSeries::instance()->getSeries($post);
 }
 
 /**
@@ -30,5 +30,5 @@ function series(\WP_Post $post): ?\WP_Term
  */
 function posts(\WP_Term $series, \WP_Post $post = null): array
 {
-	return PostSeries::getInstance()->getPosts($series, $post);
+	return PostSeries::instance()->getPosts($series, $post);
 }
