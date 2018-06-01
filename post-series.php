@@ -2,7 +2,7 @@
 /**
  * Plugin Name: ic Post Series
  * Plugin URI:  https://github.com/inerciacreativa/wp-post-series
- * Version:     2.0.1
+ * Version:     2.0.2
  * Text Domain: ic-post-series
  * Domain Path: /languages
  * Description: Gestor de series de artículos.
@@ -16,7 +16,6 @@ if (!defined('ABSPATH')) {
 	exit;
 }
 
-include_once __DIR__ . '/vendor/autoload.php';
 include_once __DIR__ . '/source/helpers.php';
 
 ic\Plugin\PostSeries\PostSeries::create(__FILE__);
