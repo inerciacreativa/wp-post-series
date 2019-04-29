@@ -6,6 +6,8 @@ use ic\Framework\Html\Tag;
 use ic\Framework\Plugin\Plugin;
 use ic\Framework\Support\Template;
 use ic\Framework\Type\Taxonomy;
+use WP_Post;
+use WP_Term;
 
 /**
  * Class PostSeries
@@ -65,14 +67,11 @@ class PostSeries extends Plugin
 	/**
 	 * Get the template with the series list of the post.
 	 *
-	 * @param \WP_Post $post
+	 * @param WP_Post $post
 	 *
 	 * @return string
-	 *
-	 * @throws \InvalidArgumentException
-	 * @throws \RuntimeException
 	 */
-	public function getTemplate(\WP_Post $post): string
+	public function getTemplate(WP_Post $post): string
 	{
 		$series = $this->getSeries($post);
 
@@ -81,7 +80,7 @@ class PostSeries extends Plugin
 		}
 
 		$posts = $this->getPosts($series, $post);
-		if (\count($posts) < 2) {
+		if (count($posts) < 2) {
 			return '';
 		}
 
@@ -106,12 +105,12 @@ class PostSeries extends Plugin
 	}
 
 	/**
-	 * @param \WP_Post $post
-	 * @param array    $posts
+	 * @param WP_Post $post
+	 * @param array   $posts
 	 *
 	 * @return array
 	 */
-	public function getLinks(\WP_Post $post, array $posts): array
+	public function getLinks(WP_Post $post, array $posts): array
 	{
 		$links    = array_flip($posts);
 		$total    = 0;
@@ -125,12 +124,10 @@ class PostSeries extends Plugin
 			if ($post !== null && $id === $post->ID) {
 				$links[$id] = Tag::strong([], $title);
 				$current    = $total;
+			} else if (get_post_status($id) !== 'publish') {
+				$links[$id] = sprintf($schedule, $title, get_the_date('', $id));
 			} else {
-				if (get_post_status($id) !== 'publish') {
-					$links[$id] = sprintf($schedule, $title, get_the_date('', $id));
-				} else {
-					$links[$id] = Tag::a(['href' => get_permalink($id)], $title);
-				}
+				$links[$id] = Tag::a(['href' => get_permalink($id)], $title);
 			}
 		}
 
@@ -140,11 +137,11 @@ class PostSeries extends Plugin
 	/**
 	 * Return the series of the post.
 	 *
-	 * @param \WP_Post $post
+	 * @param WP_Post $post
 	 *
-	 * @return null|\WP_Term
+	 * @return null|WP_Term
 	 */
-	public function getSeries(\WP_Post $post): ?\WP_Term
+	public function getSeries(WP_Post $post): ?WP_Term
 	{
 		$series = wp_get_post_terms($post->ID, self::TAX_TYPE);
 
@@ -158,13 +155,13 @@ class PostSeries extends Plugin
 	/**
 	 * Return an array with the posts for the series given.
 	 *
-	 * @param \WP_Term $series
-	 * @param \WP_Post $post
-	 * @param bool     $fields
+	 * @param WP_Term $series
+	 * @param WP_Post $post
+	 * @param bool    $fields
 	 *
 	 * @return array
 	 */
-	public function getPosts(\WP_Term $series, \WP_Post $post = null, $fields = false): array
+	public function getPosts(WP_Term $series, WP_Post $post = null, bool $fields = false): array
 	{
 		$status = ['publish'];
 

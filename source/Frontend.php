@@ -3,6 +3,7 @@
 namespace ic\Plugin\PostSeries;
 
 use ic\Framework\Plugin\PluginClass;
+use WP_Query;
 
 /**
  * Class Frontend
@@ -27,9 +28,9 @@ class Frontend extends PluginClass
 	}
 
 	/**
-	 * @param \WP_Query $query
+	 * @param WP_Query $query
 	 */
-	protected function setArchiveOrder(\WP_Query $query): void
+	protected function setArchiveOrder(WP_Query $query): void
 	{
 		if ($query->is_archive() && $query->is_tax(PostSeries::TAX_TYPE)) {
 			$query->set('order', $this->getOption('tax.order'));
@@ -42,9 +43,6 @@ class Frontend extends PluginClass
 	 * @param string $content
 	 *
 	 * @return string
-	 *
-	 * @throws \InvalidArgumentException
-	 * @throws \RuntimeException
 	 */
 	protected function addToContent(string $content): string
 	{
