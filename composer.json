@@ -24,19 +24,45 @@
     }
   ],
   "require": {
-    "php": ">=7.1",
+    "php": ">=7.2",
     "composer/installers": "^1.5",
-    "inerciacreativa/wp-framework": "^2.0"
+    "inerciacreativa/wp-framework": "^4.0"
   },
   "config": {
     "vendor-dir": "vendor"
   },
   "extra": {
-    "installer-name": "ic-post-series"
+    "installer-name": "ic-post-series",
+    "wordpress-install-dir": "www/wp",
+    "installer-paths": {
+      "www/app/mu-plugins/{$name}/": [
+        "type:wordpress-muplugin"
+      ],
+      "www/app/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ],
+      "www/app/themes/{$name}/": [
+        "type:wordpress-theme"
+      ]
+    },
+    "dropin-paths": {
+      "www/app/languages/": [
+        "vendor:koodimonni-language"
+      ],
+      "www/app/languages/plugins/": [
+        "vendor:koodimonni-plugin-language"
+      ],
+      "www/app/languages/themes/": [
+        "vendor:koodimonni-theme-language"
+      ]
+    }
   },
   "autoload": {
     "psr-4": {
       "ic\\Plugin\\PostSeries\\": "source/"
-    }
+    },
+    "files": [
+      "source/helpers.php"
+    ]
   }
 }
