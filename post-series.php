@@ -34,4 +34,6 @@ if (!class_exists(PostSeries::class)) {
 	}
 }
 
+include_once __DIR__ . '/source/helpers.php';
+
 PostSeries::create(__FILE__);
