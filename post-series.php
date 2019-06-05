@@ -2,7 +2,7 @@
 /**
  * Plugin Name: ic Post Series
  * Plugin URI:  https://github.com/inerciacreativa/wp-post-series
- * Version:     4.0.0
+ * Version:     4.0.1
  * Text Domain: ic-post-series
  * Domain Path: /languages
  * Description: Gestor de series de artículos.
